@@ -52,6 +52,7 @@ const personne2 = new Object({nom: "Bob", age: 25});
 // const personne2 = new Object();
 // personne2.nom = "Bob";
 // personne2.age = 25;
+// personne2['age'] = 25;
 console.log("1. Objet personne2 :", personne2);
 
 // 2. Accès aux propriétés de l'objet
@@ -80,6 +81,7 @@ const personne3 = {
     }
 };
 personne3.saluer();
+//personne1.saluer();
 
 // 7. Objets imbriqués
 const voiture = {
@@ -97,7 +99,7 @@ console.log("7. Nom du propriétaire :", voiture.proprietaire.nom);
 console.log("8. Âge du propriétaire :", voiture.proprietaire["age"]); // mélange de notations . et []
 
 // 9. Parcourir les propriétés d'un objet avec une boucle for...in
-console.log("10. Propriétés de l'objet personne1 :");
+console.log("9. Propriétés de l'objet personne1 :");
 for (const cle in personne1) {
     console.log(cle + " : " + personne1[cle]);
 }
@@ -105,7 +107,7 @@ for (const cle in personne1) {
 const animal = {
     type: "Inconnu",
     afficherType: function() {
-        console.log("9. Type d'animal :", this.type);
+        console.log("10. Type d'animal :", this.type);
     }
 };
 
@@ -128,11 +130,11 @@ personne5.afficherDetails();
 
 // EXERCICE : 
 // a) Mettre les 5 objets (personne1 à personne5) dans un tableau appelé 'personnes'
-
+const personnes=[personne1, personne2, personne3, personne4, personne5];
 
 // b) Calculer l'âge moyen (avec .reduce())
-
-
+let sommeAge = personnes.reduce((accumulateur,elm) => accumulateur+elm.age,0 );
+console.log("la moyenne des ages du tableau est ", sommeAge/personnes.length," ans.");
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
 console.log(personne1 instanceof Object, personne2 instanceof Object, personne3 instanceof Object, personne4 instanceof Object, personne5 instanceof Object); // true
