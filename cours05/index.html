@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo data-* en JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-5">
+    <h1 class="text-center">Manipulation des attributs data-* en JavaScript</h1>
+    
+    <div class="card mt-4" id="infoCard" data-titre="Titre Initial" data-contenu="Contenu initial de la carte.">
+        <div class="card-body">
+            <h5 class="card-title">Titre Initial</h5>
+            <p class="card-text">Contenu initial de la carte.</p>
+            <button class="btn btn-primary" id="updateCardBtn">Mettre à jour la carte</button>
+        </div>
+    </div>
+    
+    <button class="btn btn-success mt-4" id="clickCounterBtn" data-nb-clics="0">Cliquez-moi</button>
+    
+    <script src="./demoDatasetsEventListeners.js"></script>
+</body>
+</html>
