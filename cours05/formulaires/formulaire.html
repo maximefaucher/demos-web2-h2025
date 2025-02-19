@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire HTML</title>
+</head>
+<body>
+    <h2>Formulaire HTML</h2>
+    <form>
+        <div>
+            <label for="">Nom</label>
+            <input type="text" name="nom" id="nom">
+        </div>
+        <div>
+            <label for="">Courriel</label>
+            <input type="email" name="courriel" id="courriel">
+        </div>
+        <div>
+            <label for="">Mot de passe</label>
+            <input type="password" name="motdepasse" id="motdepasse">
+        </div>
+        <div>
+            <label>Genre</label>
+            <input type="radio" id="homme" name="genre" value="homme">
+            <label for="homme">Homme</label>
+            <input type="radio" id="femme" name="genre" value="femme">
+            <label for="femme">Femme</label>
+            <input type="radio" id="autre" name="genre" value="autre">
+            <label for="autre">Autre</label>
+        </div>
+        <div>
+            <label for="">Pays</label>
+            <select name="pays" id="pays">
+                <option value="france">France</option>
+                <option value="canada">Canada</option>
+                <option value="usa">États-Unis</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" name="conditions" id="conditions">
+            <label for="conditions">J'accepte les conditions</label>
+        </div>
+        <button type="submit">Soumettre</button>
+        <button type="reset">Annuler</button>
+    </form>
+</body>
+</html>
