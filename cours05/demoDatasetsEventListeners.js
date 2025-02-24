@@ -26,7 +26,8 @@
 
 // Exemple d'écouteur d'événement : lorsque la propriété readyState
 // de l'objet document change, le code suivant est exécuté
-document.addEventListener("readystatechange", () => {
+const fonctionReadyStateLog = (evt) => {
+    console.log(evt.target);
     console.log("État du document :", document.readyState);
     if (document.readyState === "interactive") {
         console.log("Le DOM est prêt !");
@@ -34,20 +35,23 @@ document.addEventListener("readystatechange", () => {
     if (document.readyState === "complete") {
         console.log("Tout est chargé !");
     }
-});
+};
+
+// document.addEventListener("readystatechange", fonctionReadyStateLog);
 
 
 // Fonctions externes à rattacher aux eventListeners
 const augmenterCompteur = (evt) => {
     // Lorsqu'on lie une fonction à un événement, le param est l'événement
-    console.log(evt);
+    //console.log(evt);
     // on peut récupérer l'élément ciblé par l'événement avec evt.target
-    console.log(evt.target);
+    //console.log(evt.target);
     // Ainsi, on peut récupérer des infos de son dataset! 
     let clics = parseInt(evt.target.dataset.nbClics);
     clics++;
-    clickCounterBtn.dataset.nbClics = clics;
+    evt.target.dataset.nbClics = clics;
     clickCounterBtn.textContent = `Cliqué ${clics} fois`;
+    //clickCounterBtn.removeEventListener('click', augmenterCompteur);
 };
 
 
@@ -66,11 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         card.dataset.titre = newTitle;
         card.dataset.contenu = newContent;
         
-        card.querySelector(".card-title").innerText = newTitle;
+        card.querySelector("h5").innerText = newTitle;
         card.querySelector(".card-text").innerText = newContent;
     });
     
     clickCounterBtn.addEventListener("click", augmenterCompteur);
-
+    // Retirer un événement
+    //clickCounterBtn.removeEventListener('click', augmenterCompteur);
 
 });

@@ -15,36 +15,9 @@ Notions importantes
 
 */
 
-// Définition d'une classe parent
-class Animal {
-    constructor(nom="N/D") {
-        this.nom = nom;
-    }
-    
-    faireDuBruit() {
-        console.log("Un bruit d'animal");
-    }
-    
-    decrire() {
-        return `Cet animal s'appelle ${this.nom}.`;
-    }
-}
-
-// Définition d'une classe enfant qui hérite de Animal
-class Chien extends Animal {
-    constructor(nom, race) {
-        super(nom); // Appelle le constructeur de la classe parent
-        this.race = race;
-    }
-    
-    faireDuBruit() { // cette méthode a été REDÉFINIE (overridden)
-        console.log("Wouf! Wouf!");
-    }
-    
-    decrire() {
-        return super.decrire() + ` C'est un chien de race ${this.race}.`; // utiliser l'héritage dans la redéfinition de cette méthode
-    }
-}
+// importation des classes
+import Animal from "./classes/Animal.js";
+import { Chien } from "./classes/Chien.js";
 
 // Utilisation des classes
 const unAnimal = new Animal("Popcorn");
@@ -55,3 +28,5 @@ unAnimal.faireDuBruit(); // Un bruit d'animal
 monChien.faireDuBruit(); // Wouf! Wouf!
 console.log(monChien.decrire()); // Cet animal s'appelle Rex. C'est un chien de race Labrador.
 console.log(unAnimal.decrire()); // Cet animal s'appelle Popcorn.
+console.log(unAnimal instanceof Animal, unAnimal instanceof Chien);
+console.log(monChien instanceof Animal, monChien instanceof Chien);

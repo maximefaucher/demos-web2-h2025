@@ -7,42 +7,64 @@
 </head>
 <body>
     <h2>Formulaire HTML</h2>
-    <form>
+    <form action="" method="get" id="formulaire">
         <div>
-            <label for="">Nom</label>
-            <input type="text" name="nom" id="nom">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" required placeholder="Maxime Faucher">
         </div>
         <div>
-            <label for="">Courriel</label>
-            <input type="email" name="courriel" id="courriel">
+            <label for="courriel">Courriel</label>
+            <input type="email" name="courriel" id="courriel" required value="max@max.ca">
         </div>
         <div>
-            <label for="">Mot de passe</label>
-            <input type="password" name="motdepasse" id="motdepasse">
+            <label for="motdepasse">Mot de passe</label>
+            <input type="password" name="motdepasse" id="motdepasse" required>
+        </div>
+        <div>
+            <label for="motdepasse2">Mot de passe (confirmation)</label>
+            <input type="password" name="motdepasse2" id="motdepasse2" required>
+        </div>
+        <div>
+            <label for="nom">Âge</label>
+            <input type="number" name="age" id="age" required min="0" step="">
+        </div>
+        <div>
+            <label for="phone">Téléphone</label>
+            <input type="tel" name="phone" id="phone" required>
         </div>
         <div>
             <label>Genre</label>
-            <input type="radio" id="homme" name="genre" value="homme">
+            <input type="radio" id="homme" name="genre" value="homme" checked>
             <label for="homme">Homme</label>
             <input type="radio" id="femme" name="genre" value="femme">
             <label for="femme">Femme</label>
             <input type="radio" id="autre" name="genre" value="autre">
             <label for="autre">Autre</label>
         </div>
+        <div id="div-autregenre" style="display: none;">
+            <label for="genreautre">Autre genre (spécifiez)</label>
+            <input type="text" name="genreautre" id="genreautre" >
+        </div>
+
         <div>
             <label for="">Pays</label>
             <select name="pays" id="pays">
-                <option value="france">France</option>
-                <option value="canada">Canada</option>
-                <option value="usa">États-Unis</option>
+                <optgroup label="Europe">
+                    <option value="france">France</option>
+                </optgroup>
+                <optgroup label="Amérique">
+                    <option value="canada">Canada</option>
+                    <option value="usa">États-Unis</option>
+                </optgroup>
             </select>
         </div>
         <div>
-            <input type="checkbox" name="conditions" id="conditions">
+            <input type="checkbox" name="conditions" id="conditions" checked>
             <label for="conditions">J'accepte les conditions</label>
         </div>
         <button type="submit">Soumettre</button>
         <button type="reset">Annuler</button>
     </form>
+    <!-- <script src="./formulaire.js"></script> -->
 </body>
 </html>

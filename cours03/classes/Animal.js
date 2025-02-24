@@ -1,5 +1,5 @@
 // Définition d'une classe parent
-class Animal {
+export default class Animal {
     constructor(nom="N/D") {
         this.nom = nom;
     }
@@ -13,4 +13,3 @@ class Animal {
     }
 }
 
-export default Animal;
