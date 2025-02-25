@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Formulaire HTML</h2>
-    <form action="" method="get" id="formulaire">
+    <form action="" method="post" id="formulaire">
         <div>
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" required placeholder="Maxime Faucher">
@@ -26,15 +26,15 @@
         </div>
         <div>
             <label for="nom">Âge</label>
-            <input type="number" name="age" id="age" required min="0" step="">
+            <input type="number" name="age" id="age" required min="0" max="150" step="">
         </div>
         <div>
             <label for="phone">Téléphone</label>
-            <input type="tel" name="phone" id="phone" required>
+            <input type="tel" name="phone" id="phone" required pattern="(\()?\d{3}(\))?( )?\d{3}(-)?\d{4}" placeholder="Format requis : (555) 555-5555">
         </div>
         <div>
             <label>Genre</label>
-            <input type="radio" id="homme" name="genre" value="homme" checked>
+            <input type="radio" id="homme" name="genre" value="homme" required>
             <label for="homme">Homme</label>
             <input type="radio" id="femme" name="genre" value="femme">
             <label for="femme">Femme</label>
@@ -65,6 +65,6 @@
         <button type="submit">Soumettre</button>
         <button type="reset">Annuler</button>
     </form>
-    <!-- <script src="./formulaire.js"></script> -->
+    <script src="./formulaire.js"></script>
 </body>
 </html>

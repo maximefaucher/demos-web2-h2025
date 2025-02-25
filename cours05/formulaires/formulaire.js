@@ -5,9 +5,11 @@ const toggleDivGenre = (evt) => {
     const divGenre = document.getElementById("div-autregenre");
     if(genre === "autre") { // on montre le div
         divGenre.style.display = "block";
+        document.getElementById('genreautre').required = true;
     }
     else {
         divGenre.style.display = "none";
+        document.getElementById('genreautre').removeAttribute('required');
     }
 };
 
@@ -28,7 +30,7 @@ const chargement = () => {
         evt.stopPropagation();
         //console.log(evt.target);
         const formData = new FormData(form);
-        console.log(formData);
+        console.log(formData.get('nom'));
         for( const [name, value] of formData.entries()) {
             console.log(`${name} : ${value}`);
         }

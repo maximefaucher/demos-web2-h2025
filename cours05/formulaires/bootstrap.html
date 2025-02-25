@@ -14,22 +14,23 @@
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id="email" name="email" >
+                <div class="valid-feedback">Champ valide.</div>
                 <div class="invalid-feedback">Veuillez entrer une adresse e-mail valide.</div>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Mot de passe</label>
-                <input type="password" class="form-control" id="password" name="password" required minlength="8">
+                <input type="password" class="form-control" id="password" name="password" required minlength="3">
                 <div class="invalid-feedback">Le mot de passe est requis et doit comporter au moins 8 caractères.</div>
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required minlength="8">
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required minlength="3">
                 <div class="invalid-feedback">Les mots de passe ne correspondent pas.</div>
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Numéro de téléphone</label>
-                <input type="text" class="form-control" id="phone" name="phone" required pattern="\(\d{3}\) \d{3}-\d{4}" placeholder="(123) 456-7890">
-                <div class="invalid-feedback">Veuillez entrer un numéro de téléphone au format (123) 456-7890.</div>
+                <input type="text" class="form-control" id="phone" name="phone" required pattern="\d{10}" placeholder="9999999999 (10 chiffres)">
+                <div class="invalid-feedback">Veuillez entrer un numéro de téléphone au format 9999999999 (10 chiffres).</div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Genre</label>
@@ -38,11 +39,11 @@
                     <label class="form-check-label" for="male">Homme</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
                     <label class="form-check-label" for="female">Femme</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="other" value="other" required>
+                    <input class="form-check-input" type="radio" name="gender" id="other" value="other">
                     <label class="form-check-label" for="other">Autre</label>
                 </div>
                 <div class="invalid-feedback">Veuillez sélectionner un genre.</div>
