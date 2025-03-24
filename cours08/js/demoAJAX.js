@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. on veut une réponse de type 'blob' (fichier binaire)
     // 4. on appelle la fonction creerImage() pour taiter la réponse
     document.querySelector('button.img').addEventListener('click', () => {
-        montrerContenu('GET', '/img/chaton.jpg', 'blob', creerImage);
+        montrerContenu('GET', './img/chaton.jpg', 'blob', creerImage);
     });
 
     // Similairement pour le paragraphe
     document.querySelector('button.p').addEventListener('click', () => {
-        montrerContenu('GET', '/texte.txt', 'text', creerParagraphe);
+        montrerContenu('GET', './texte.txt', 'text', creerParagraphe);
     });
 });
 
