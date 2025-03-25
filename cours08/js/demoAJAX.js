@@ -33,23 +33,24 @@ const creerParagraphe = (texte) => {
 // Fonction qui va effectuer une requête AJAX pour obtenir le contenu d'un fichier
 // et appeler une fonction de rappel pour traiter le contenu
 const montrerContenu = (method, url, type, callback) => {
-    const xhr = new XMLHttpRequest(); // on crée l'objet de requête
-    xhr.open(method, url, true); // active la requête
+    const xhr = new XMLHttpRequest(); // on crée l'objet de requête (étape 1)
+    xhr.open(method, url, true); // active la requête (étape 2)
     xhr.responseType = type; // met la propriété responseType à la valeur 'type' reçue en param
     // les valeurs possibles sont 'arraybuffer', 'blob', 'document', 'json', 'text' (ou '')
 
-    // on définit quoi faire pour l'événement 'load' qui survient quand la réponse est reçue
+    // on définit quoi faire pour l'événement 'load' qui survient quand la réponse est reçue (étape 4)
     xhr.addEventListener("load", (evt) => {
         if(xhr.status == 200){ // code HTTP 200 = OK (les codes 2XX sont des 'success')
             // on veut appeler la fonction 'callback' pour qu'elle traite la réponse
             callback(xhr.response);
+            
         }
         else{ // autre code que 200, probablement une erreur
             console.error('Erreur de requête : code ' + xhr.status + " (" + xhr.statusText + ")");
         }
     });
 
-    xhr.send(); // on envoie la requête
+    xhr.send(); // on envoie la requête (étape 3)
 }
 
 // Événements pour les boutons

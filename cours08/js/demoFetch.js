@@ -18,43 +18,63 @@ const urlRequetePays = "https://restcountries.com/v3.1/all?fields=capital,flags,
 
 
 // Fonction asynchrone (mot clé async) pour récupérer les données des pays
-const fonctionAsynchrone = async () => {
+const fonctionAsynchrone = async () => { // autre façon : async function fonctionAsynchrone() {
     
-    console.log("Avant la requête async / await");
+    console.log("Avant la requête async / await"); // 1
     
     try {
         // On utilise la fonction fetch pour faire la requête avec await
-        
-
-        console.log("Réponse reçue");
+        const reponse = await fetch(urlRequetePays);
+        console.log(reponse);
+        console.log("Réponse reçue"); // 2
         
         // On récupère les données en format JSON (affecter à la variable pays le résultat de cette opération)
-        
+        const pays = await reponse.json()
+        console.log(pays); // pays est un tableau de 250 objets
 
-        console.log("Données récupérées");
+        console.log("Données récupérées"); // 3
 
         // On affiche les cartes en passant les données récupérées à notre fonction
         afficherCartes(pays)
         
-        console.log("Fin de l'exécution");
+        console.log("Fin de l'exécution"); // 4
 
     } catch (erreur) {
-        console.error(erreur);
+        console.error(erreur); // variable
     }
 };
 
 // TODO : reprendre le code ci-dessus et le modifier pour utiliser le chaînage de promesses 
 // dans une fonction nommée fonctionPromesses
+const fonctionPromesses = () => {
 
+    console.log("Avant la requête fetch avec promesses"); // 1
+    
+    fetch(urlRequetePays)
+        .then(reponse => {
+            console.log(reponse);
+            console.log("Réponse reçue"); // 2
+            return reponse.json(); // retourne une promesse, donc besoin d'un 2e .then() chaîné
+        })
+        .then(pays => {
+            console.log("Données récupérées"); // 3
+            console.log(pays);
+            afficherCartes(pays)
+            console.log("Fin de l'exécution"); // 4
+        })
+        .catch(erreur => console.error(erreur));
+    console.log('Après le fetch');
+};
 
 
 // Écouteurs d'événements sur DOMContentLoaded (un par fonction)
-
+//document.addEventListener('DOMContentLoaded', fonctionAsynchrone);
+document.addEventListener('DOMContentLoaded', fonctionPromesses);
 
 // -----------------------------------------------------------------------------------------------------------
 
 // Fonction pour afficher les cartes dans la page (dans le divPays)
-function afficherCartes(pays) {
+function afficherCartes(pays = []) {
     // Modèle de carte
     //`<div class="card col-sm-12 col-md-6 col-lg-3 p-0">
     //      <div class="card-header">${p.continents[0]}</div>

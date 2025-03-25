@@ -54,10 +54,14 @@ const traiterJSON = (reponse) => {
     console.log(reponse); // inspecter l'objet dans la console!
 
     // 1.   Créer un <h1> ayant le contenu de la clé "squadName" et l'ajouter au <header>
-    
+    const h1 = document.createElement('h1');
+    h1.textContent = reponse.squadName;
+    header.append(h1)
 
     // 2.   Créer un <p> ayant le contenu des clés "homeTown" et "formed" et l'ajouter au <header>
-    
+    const p = document.createElement('p');
+    p.textContent = `Hometown: ${reponse.homeTown} // Formed: ${reponse.formed}`;
+    header.append(p)
 
     // 3.   Afficher les membres de l'équipe et les afficher dans le <section> avec la structure suivante :
     /*
@@ -73,11 +77,33 @@ const traiterJSON = (reponse) => {
                 </ul>
             </article>  
     */
-    
+    reponse.members.forEach( membre => {
+        // Créer les éléments
+        const article = document.createElement('article');
+        const h2 = document.createElement('h2');
+        const p1 = document.createElement('p');
+        const p2 = document.createElement('p');
+        const p3 = document.createElement('p');
+        const ul = document.createElement('ul');
+        // Remplir selon les données
+        h2.textContent = membre.name;
+        p1.textContent = `Secret identity: ${membre.secretIdentity}`;
+        p2.textContent = `Age: ${membre.age}`;
+        p3.textContent = "Superpowers";
+        // Boucler pour les superpouvoirs
+        membre.powers.forEach( pouvoir => {
+            const li = document.createElement('li');
+            li.textContent = pouvoir;
+            ul.append(li);
+        });
+        // Rattacher les éléments
+        article.append(h2, p1, p2, p3, ul);
+        section.append(article);
+    });
     
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     // Faisons la requête AJAX pour obtenir le contenu du fichier JSON
-    
+    montrerContenu('GET', urlRequete, 'json', traiterJSON);
 });
